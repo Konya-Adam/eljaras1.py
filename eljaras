@@ -1,0 +1,64 @@
+def draw_shape(shape):
+    for line in shape:
+        print(line)
+
+alakzat = [
+    "-----",
+    "-   -",
+    "--   --",
+    "-----"
+]
+
+draw_shape(alakzat)
+
+def ertek_tipusat_kiir(szam):
+    if szam < 0:
+        print(f"Az {szam} egy negatív szám.")
+    elif szam > 0:
+        print(f"Az {szam} egy pozitív szám.")
+    else:
+        print("A megadott szám nulla.")
+
+ertek_tipusat_kiir(6)
+ertek_tipusat_kiir(-2)
+ertek_tipusat_kiir(0)
+
+def nagyobb_szam_kiir(szam1, szam2):
+    if szam1 > szam2:
+        print(f"{szam1} nagyobb, mint {szam2}.")
+    elif szam1 < szam2:
+        print(f"{szam2} nagyobb, mint {szam1}.")
+    else:
+        print("A két szám egyenlő.")
+
+nagyobb_szam_kiir(3, 7)
+nagyobb_szam_kiir(35, 4)
+nagyobb_szam_kiir(2, 2)
+
+def legrovidebb_szo_kiir(words):
+    if len(words) == 0:
+        print("Nincs megadott szó.")
+    else:
+        legrovidebb = min(words, key=len)
+        print(f"A legrövidebb szó: {legrovidebb}")
+
+szavak = []
+for i in range(3):
+    szo = input(f"Kérem, adja meg a(z) {i+1}. szót: ")
+    szavak.append(szo)
+
+legrovidebb_szo_kiir(szavak)
+
+
+def mezot_rajzol(sor_poz, oszlop_poz):
+    for sor in range(3):
+        for oszlop in range(6):
+            if sor == sor_poz and oszlop == oszlop_poz:
+                print('+ ', end='')
+            else:
+                print('O ', end='')
+        print()
+
+sor_poz = int(input("Kérem, adja meg a sor pozícióját (0-2): "))
+oszlop_poz = int(input("Kérem, adja meg az oszlop pozícióját (0-5): "))
+mezot_rajzol(sor_poz, oszlop_poz) 
