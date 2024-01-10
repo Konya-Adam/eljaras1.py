@@ -1,0 +1,107 @@
+def osszegzo(*szamok):
+    osszeg = sum(szamok)
+    return osszeg
+
+szam1 = int(input("Kérem, adjon meg egy számot: "))
+szam2 = int(input("Kérem, adjon meg még egy számot: "))
+szam3 = int(input("Kérem, adjon meg egy harmadik számot: "))
+
+osszeg = osszegzo(szam1, szam2, szam3)
+print(f"A megadott számok összege: {osszeg}")
+
+def paros_e(*szamok):
+    for szam in szamok:
+        if szam % 2 == 0:
+            return True
+    return False
+
+szamok1 = (1, 3, 5, 7, 9)
+szamok2 = (2, 4, 6, 8, 10)
+
+eredmeny1 = paros_e(*szamok1)
+eredmeny2 = paros_e(*szamok2)
+
+print(f"Az első lista tartalmaz páros számot: {eredmeny1}")
+print(f"A második lista tartalmaz páros számot: {eredmeny2}")
+
+def harommal_oszthatok(szamok):
+    darab = 0
+    for szam in szamok:
+        if szam % 3 == 0:
+            darab += 1
+    return darab
+
+szamok_lista = [3, 6, 9, 12, 15, 18, 21, 25, 27, 30, 33, 36, 39, 40]
+
+osszeg = harommal_oszthatok(szamok_lista)
+
+print(f"Az {len(szamok_lista)} szám közül {osszeg} darab osztható hárommal.")
+
+def harommal_oszthatok(szamok):
+    darab = 0
+    for szam in szamok:
+        if szam % 3 == 0:
+            darab += 1
+    return darab
+
+szamok_lista = []
+while True:
+    szam = int(input("Kérem, adjon meg egy számot (negatív szám a befejezéshez): "))
+    if szam < 0:
+        break
+    szamok_lista.append(szam)
+
+osszeg = harommal_oszthatok(szamok_lista)
+
+print(f"A megadott {len(szamok_lista)} szám közül {osszeg} darab osztható hárommal.")
+
+import math
+
+def kerulet(alap, *parameterek):
+    szam_parameterek_szama = len(parameterek)
+
+    if szam_parameterek_szama == 0:
+        return 4 * alap
+    elif szam_parameterek_szama == 1:
+        return 2 * (alap + parameterek[0])
+    elif szam_parameterek_szama == 2:
+        a, b = parameterek
+        return alap + a + b
+    else:
+        return szam_parameterek_szama * alap
+
+alap_meret = float(input("Kérem, adja meg az alap méretét: "))
+
+if alap_meret <= 0:
+    print("Az alap méretének pozitívnak kell lennie!")
+else:
+    eredmeny = kerulet(alap_meret)
+    print(f"Négyzet kerülete: {eredmeny}")
+
+    eredmeny = kerulet(alap_meret, 5)
+    print(f"Téglalap kerülete: {eredmeny}")
+
+    eredmeny = kerulet(alap_meret, 3, 4)
+    print(f"Háromszög kerülete: {eredmeny}")
+
+    eredmeny = kerulet(alap_meret, 1, 2, 3, 4)
+    print(f"Sokszög kerülete: {eredmeny}")
+
+def legkisebb_elem(szamok):
+    if not szamok:
+        return None  
+    return min(szamok)
+
+szamok_lista = []
+while True:
+    szam = int(input("Kérem, adjon meg egy egész pozitív számot (negatív szám a befejezéshez): "))
+    if szam < 0:
+        break
+    szamok_lista.append(szam)
+
+legkisebb = legkisebb_elem(szamok_lista)
+
+if legkisebb is not None:
+    print(f"A megadott számok közül a legkisebb: {legkisebb}")
+else:
+    print("Nem adott meg pozitív számot.") 
